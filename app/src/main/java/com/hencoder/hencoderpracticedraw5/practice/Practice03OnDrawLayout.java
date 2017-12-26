@@ -12,6 +12,11 @@ public class Practice03OnDrawLayout extends LinearLayout {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     Pattern pattern = new Pattern();
 
+    {
+        // 在这里插入 setWillNotDraw(false) 以启用完整的绘制流程
+        setWillNotDraw(false);
+    }
+
     public Practice03OnDrawLayout(Context context) {
         super(context);
     }
@@ -22,10 +27,6 @@ public class Practice03OnDrawLayout extends LinearLayout {
 
     public Practice03OnDrawLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-    }
-
-    {
-        // 在这里插入 setWillNotDraw(false) 以启用完整的绘制流程
     }
 
     @Override
@@ -41,6 +42,10 @@ public class Practice03OnDrawLayout extends LinearLayout {
         Paint patternPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         Practice03OnDrawLayout.Pattern.Spot[] spots;
 
+        {
+            patternPaint.setColor(Color.parseColor("#A0E91E63"));
+        }
+
         private Pattern() {
             spots = new Practice03OnDrawLayout.Pattern.Spot[4];
             spots[0] = new Practice03OnDrawLayout.Pattern.Spot(0.24f, 0.3f, 0.026f);
@@ -51,10 +56,6 @@ public class Practice03OnDrawLayout extends LinearLayout {
 
         private Pattern(Practice03OnDrawLayout.Pattern.Spot[] spots) {
             this.spots = spots;
-        }
-
-        {
-            patternPaint.setColor(Color.parseColor("#A0E91E63"));
         }
 
         private void draw(Canvas canvas) {
